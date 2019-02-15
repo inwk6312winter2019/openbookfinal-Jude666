@@ -90,3 +90,32 @@ copy = sorted(copy, reverse=True)
 for k in copy:
         print('%s: %d' %(k[1], k[0]))
 
+
+
+#This is Task1A-4
+
+
+def break_into_words():
+    
+    book = open('tsawyer.txt')
+    words_list = []
+    for line in book:
+        for item in line.split():
+            item = del_punctuation(item)
+            item = item.lower()
+            # print(item)
+            words_list.append(item)
+    return words_list
+
+
+def character_word_count():
+    
+    words_list = break_into_words()
+    dictionary = {}
+    for word in words_list:
+        if word not in dictionary:
+            dictionary[word] = 1
+        else:
+            dictionary[word] += 1
+
+    return dictionary
